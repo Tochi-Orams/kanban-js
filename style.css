@@ -33,10 +33,25 @@
 }
 
 .list-item {
+    text-align: left;
     list-style: none;
     background: yellow;
     margin: 3px;
     border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr max-content;
+}
+
+.list-item span {
+    text-align: left;
+}
+
+.list-item a {
+    font-size: medium;
+    font-weight: 600;
+    text-decoration: none;
+    color: red;
+    background: whitesmoke;
 }
 
 button.add {
