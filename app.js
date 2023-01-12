@@ -14,9 +14,9 @@ function deleteTask() {
 }
 
 function addNewTask(){
-    if(taskTilte) {
+    if(taskTilte.value != '') {
         const li = createElement('li', 'list-item')
-        const span = createElement('sapn', taskTilte.value)
+        const span = createElement('span', taskTilte.value)
         const a = createElement('a', 'delete')
         li.append(span, a)
         listItemsToDo.insertBefore(li,taskTilte)
