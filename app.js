@@ -24,9 +24,4 @@ function addNewTask(){
     }
 }
 
-
 buttonAdd.addEventListener('click', addNewTask)
-
-//const buttonDelete = document.querySelector('.delete')
-//console.log(listItemsToDo.childNodes)
-//buttonDelete.addEventListener('click', deleteTask)
