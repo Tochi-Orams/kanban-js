@@ -35,23 +35,37 @@
 .list-item {
     text-align: left;
     list-style: none;
-    background: yellow;
+    background: linear-gradient(to bottom right, #FD8451, #FFBD6F);
     margin: 3px;
     border: 1px solid black;
     display: grid;
-    grid-template-columns: 1fr max-content;
+    grid-template-columns: 1fr max-content max-content max-content;
+    grid-template-rows: max-content;
+    gap: 2px;
 }
 
 .span {
     text-align: left;
 }
 
+.svg {
+    width: 27px;
+    border-radius: 2px;
+}
+
+.edit {
+    color: whitesmoke;
+    background-color: #0f0f0f;
+}
+
 .delete {
-    font-size: medium;
-    font-weight: 600;
-    text-decoration: none;
-    color: red;
-    background: whitesmoke;
+    color: white;
+    background-color: red;
+}
+
+.save {
+    color: green;
+    background-color: white;
 }
 
 button.add {
