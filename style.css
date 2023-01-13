@@ -27,6 +27,11 @@
     margin: 5px ;
 }
 
+.task.complete.hidden {
+    display: none;
+}
+
+
 .list-items {
     margin-top: 5px;
     border: 1px solid black;

@@ -1,5 +1,6 @@
 const buttonAdd = document.querySelector('.add')
 const taskTilte = document.querySelector('#taskTitle')
+const taskComplete = document.querySelector('.task.complete')
 const listItemsToDo = document.querySelector('.list-items.toDo')
 const listItemsComplete = document.querySelector('.list-items.complete')
 const buttonEdit = `<svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" class="svg edit">
@@ -11,6 +12,9 @@ const buttonDelete = `<svg fill="none" viewBox="0 0 24 24" stroke-width="2" stro
 const buttonSave = `<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="svg save">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
                     </svg>`
+
+
+taskComplete.classList.add('hidden')
 
 function createElement(element, className) {
     const newElement = document.createElement(element)
@@ -24,6 +28,7 @@ function editTitleTask() {
 }
 
 function moveToComplete(){
+    taskComplete.classList.remove('hidden')
     listItemsComplete.append(this.parentElement)
 }
 
