@@ -18,3 +18,8 @@ But in the code below, we delete it after,
 }``
 
 So, the task complete doesn't appear in the list of task completed
+
+## TO DO 
+[ ] : add features for editing task
+[ ] : remove svgEdit and svgSave when task is complete
+[ ] : stylized the card-container, list-item
