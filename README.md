@@ -25,3 +25,4 @@ So, the task complete doesn't appear in the list of task completed
 [ ] : add features for editing task
 [ ] : remove svgEdit and svgSave when task is complete
 [ ] : stylized the card-container, list-item
+[ ] : add animation effect for every event
