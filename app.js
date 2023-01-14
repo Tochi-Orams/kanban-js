@@ -24,7 +24,13 @@ function createElement(element, className) {
 }
 
 function editTitleTask() {
-    console.log(this.parentElement);
+    if(this == svgEdit ) {
+        edit.classList.remove('hidden')
+        text.classList.add('hidden')
+    } else {
+        edit.classList.add('hidden')
+        text.classList.remove('hidden')
+    }
 }
 
 function moveToComplete(){
@@ -34,13 +40,13 @@ function moveToComplete(){
 
 function deleteTask() {
     this.parentElement.remove()
+    if(listItemsComplete.childElementCount === 0 ) taskComplete.classList.add('hidden')
 }
 
 function addNewTask(){
     if(taskTilte.value != '') {
         const li = createElement('li', 'list-item')
         const span = createElement('span', taskTilte.value)
-        const a = createElement('a', 'delete')
         const svgEdit = createElement('svg', buttonEdit)
         const svgDelete = createElement('svg', buttonDelete)
         const svgSave = createElement('svg', buttonSave)
@@ -53,3 +59,19 @@ function addNewTask(){
 }
 
 buttonAdd.addEventListener('click', addNewTask)
+
+function hidden(){
+    if(this == text ) {
+        edit.classList.remove('hidden')
+        text.classList.add('hidden')
+    } else {
+        edit.classList.add('hidden')
+        text.classList.remove('hidden')
+    }
+}
+
+const text = document.querySelector('.text')
+const edit = document.querySelector('.edit')
+text.addEventListener('click', hidden)
+edit.addEventListener('click', hidden)
+

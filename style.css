@@ -82,3 +82,27 @@ button.add {
     border: 1px solid black;
     border-radius: 20px;
 }
+
+.contain {
+    width: 25%;
+    height: 100px;
+    display: grid;
+    color: white;
+    background-color: orange;
+}
+
+.text {
+    background-color: #0f0f0f;
+}
+
+.text.hidden {
+    display: none;
+}
+
+.edit {
+    background-color: red;
+}
+
+.edit.hidden {
+    display: none;
+}

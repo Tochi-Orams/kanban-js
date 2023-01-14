@@ -21,7 +21,7 @@ So, the task complete doesn't appear in the list of task completed
 
 ## TO DO 
 [x] : The box of Task's completed only appear when one task is complete
-[ ] : The box of Task's completed disappear when one task is complete
+[x] : The box of Task's completed disappear when one task is complete
 [ ] : add features for editing task
 [ ] : remove svgEdit and svgSave when task is complete
 [ ] : stylized the card-container, list-item
