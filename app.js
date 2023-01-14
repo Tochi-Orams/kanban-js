@@ -18,8 +18,8 @@ taskComplete.classList.add('hidden')
 
 function createElement(element, className) {
     const newElement = document.createElement(element)
-    element != 'span' && element != 'svg' ? newElement.classList.add(className) : newElement.classList.add(element)
-    if(element != 'li') newElement.innerHTML = className
+    element == 'li' ? newElement.classList.add(className) : newElement.classList.add(element)
+    if( ! (element.includes('li' || 'input'))) newElement.innerHTML = className
     return newElement
 }
 
@@ -47,6 +47,7 @@ function addNewTask(){
     if(taskTilte.value != '') {
         const li = createElement('li', 'list-item')
         const span = createElement('span', taskTilte.value)
+        const input = createElement('input', taskTilte.value)
         const svgEdit = createElement('svg', buttonEdit)
         const svgDelete = createElement('svg', buttonDelete)
         const svgSave = createElement('svg', buttonSave)
@@ -60,18 +61,32 @@ function addNewTask(){
 
 buttonAdd.addEventListener('click', addNewTask)
 
+/* Just a test
+
 function hidden(){
-    if(this == text ) {
-        edit.classList.remove('hidden')
+    if(this == btn1 ) {
+        btn2.classList.remove('hidden')
+        btn1.classList.add('hidden')
         text.classList.add('hidden')
+        edit.classList.remove('hidden')
     } else {
+        btn1.classList.remove('hidden')
+        btn2.classList.add('hidden')
         edit.classList.add('hidden')
         text.classList.remove('hidden')
     }
 }
 
+const btn1 = document.querySelector('#text')
+const btn2 = document.querySelector('#edit')
 const text = document.querySelector('.text')
 const edit = document.querySelector('.edit')
-text.addEventListener('click', hidden)
-edit.addEventListener('click', hidden)
 
+
+btn2.classList.add('hidden')
+edit.classList.add('hidden')
+
+btn1.addEventListener('click', hidden)
+btn2.addEventListener('click', hidden)
+
+*/
