@@ -83,33 +83,3 @@ function addNewTask(){
 }
 
 buttonAddNewTask.addEventListener('click', addNewTask)
-
-/* Just a test
-
-function hidden(){
-    if(this == btn1 ) {
-        btn2.classList.remove('hidden')
-        btn1.classList.add('hidden')
-        text.classList.add('hidden')
-        edit.classList.remove('hidden')
-    } else {
-        btn1.classList.remove('hidden')
-        btn2.classList.add('hidden')
-        edit.classList.add('hidden')
-        text.classList.remove('hidden')
-    }
-}
-
-const btn1 = document.querySelector('#text')
-const btn2 = document.querySelector('#edit')
-const text = document.querySelector('.text')
-const edit = document.querySelector('.edit')
-
-
-btn2.classList.add('hidden')
-edit.classList.add('hidden')
-
-btn1.addEventListener('click', hidden)
-btn2.addEventListener('click', hidden)
-
-*/
