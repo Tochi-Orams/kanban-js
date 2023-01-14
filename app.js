@@ -1,8 +1,8 @@
 const buttonAddNewTask = document.querySelector('.add')
 const taskTilte = document.querySelector('#taskTitle')
-const taskComplete = document.querySelector('.task.complete')
-const listItemsToDo = document.querySelector('.list-items.toDo')
-const listItemsComplete = document.querySelector('.list-items.complete')
+const boxContainTaskComplete = document.querySelector('.task.complete')
+const listTaskToDo = document.querySelector('.list-items.toDo')
+const listTaskComplete = document.querySelector('.list-items.complete')
 const buttonEdit = `<svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" class="svg edit">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"></path>
                     </svg>`
@@ -14,7 +14,7 @@ const buttonSave = `<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stro
                     </svg>`
 
 
-taskComplete.classList.add('hidden')
+boxContainTaskComplete.classList.add('hidden')
 
 function createElement(element, className) {
     const newElement = document.createElement(element)
@@ -47,16 +47,16 @@ function editTitleTask() {
 }
 
 function moveToComplete(){
-    taskComplete.classList.remove('hidden')
-    listItemsComplete.append(this.parentElement)
+    boxContainTaskComplete.classList.remove('hidden')
+    listTaskComplete.append(this.parentElement)
 }
 
 function deleteTask() {
     this.parentElement.remove()
-    if(listItemsComplete.childElementCount === 0 ) taskComplete.classList.add('hidden')
+    if(listTaskComplete.childElementCount === 0 ) boxContainTaskComplete.classList.add('hidden')
 }
 
-function addNewTask(){
+function createNewTask(){
     if(taskTilte.value != '') {
         const li = createElement('li', 'list-item')
         const containTaskTitle = createElement('div', 'contain')
@@ -68,13 +68,15 @@ function addNewTask(){
         const svgDelete = createElement('svg', buttonDelete)
         const svgSave = createElement('svg', buttonSave)
 
+        // disposition of all element in the task and value default
         editContainer.append(svgEdit,svgEditSave)
         svgEditSave.classList.add('hidden')
         containTaskTitle.append(span, input)
         input.classList.add('hidden')
         li.append(containTaskTitle, editContainer, svgDelete, svgSave)
-        listItemsToDo.insertBefore(li, taskTilte)
+        listTaskToDo.insertBefore(li, taskTilte)
 
+        // task functionnality : delete, complete and edit
         svgDelete.addEventListener('click', deleteTask)
         svgSave.addEventListener('click', moveToComplete)
         svgEdit.addEventListener('click', editTitleTask)
@@ -82,4 +84,4 @@ function addNewTask(){
     }
 }
 
-buttonAddNewTask.addEventListener('click', addNewTask)
+buttonAddNewTask.addEventListener('click', createNewTask)
