@@ -1,4 +1,4 @@
-const buttonAdd = document.querySelector('.add')
+const buttonAddNewTask = document.querySelector('.add')
 const taskTilte = document.querySelector('#taskTitle')
 const taskComplete = document.querySelector('.task.complete')
 const listItemsToDo = document.querySelector('.list-items.toDo')
@@ -18,18 +18,31 @@ taskComplete.classList.add('hidden')
 
 function createElement(element, className) {
     const newElement = document.createElement(element)
-    element == 'li' ? newElement.classList.add(className) : newElement.classList.add(element)
-    if( ! (element.includes('li' || 'input'))) newElement.innerHTML = className
+    newElement.classList.add( element == 'li' || element == 'div' || element == 'button' ? className : element)
+    if(element.includes('span') || element.includes('svg')) newElement.innerHTML = className
     return newElement
 }
 
+function removeClassHidden(element){
+    element.classList.remove('hidden')
+}
+
+function addClassHidden(element) {
+    element.classList.add('hidden')
+}
+
 function editTitleTask() {
-    if(this == svgEdit ) {
-        edit.classList.remove('hidden')
-        text.classList.add('hidden')
+    const firstGrandChildOfGrandsParent = this.parentElement.parentElement.firstElementChild.firstElementChild
+    const lastGrandChildOfGrandsParent = this.parentElement.parentElement.firstElementChild.lastElementChild
+    addClassHidden(this)
+    if(this.nextElementSibling) {
+        addClassHidden(firstGrandChildOfGrandsParent)
+        removeClassHidden(this.nextElementSibling)
+        removeClassHidden(lastGrandChildOfGrandsParent)
     } else {
-        edit.classList.add('hidden')
-        text.classList.remove('hidden')
+        addClassHidden(lastGrandChildOfGrandsParent)
+        removeClassHidden(this.previousElementSibling)
+        removeClassHidden(firstGrandChildOfGrandsParent)
     }
 }
 
@@ -46,20 +59,30 @@ function deleteTask() {
 function addNewTask(){
     if(taskTilte.value != '') {
         const li = createElement('li', 'list-item')
+        const containTaskTitle = createElement('div', 'contain')
         const span = createElement('span', taskTilte.value)
         const input = createElement('input', taskTilte.value)
+        const editContainer = createElement('button', 'contain')
         const svgEdit = createElement('svg', buttonEdit)
+        const svgEditSave = createElement('svg', buttonSave)
         const svgDelete = createElement('svg', buttonDelete)
         const svgSave = createElement('svg', buttonSave)
-        li.append(span, svgEdit, svgDelete, svgSave)
+
+        editContainer.append(svgEdit,svgEditSave)
+        svgEditSave.classList.add('hidden')
+        containTaskTitle.append(span, input)
+        input.classList.add('hidden')
+        li.append(containTaskTitle, editContainer, svgDelete, svgSave)
         listItemsToDo.insertBefore(li, taskTilte)
+
         svgDelete.addEventListener('click', deleteTask)
         svgSave.addEventListener('click', moveToComplete)
         svgEdit.addEventListener('click', editTitleTask)
+        svgEditSave.addEventListener('click', editTitleTask)
     }
 }
 
-buttonAdd.addEventListener('click', addNewTask)
+buttonAddNewTask.addEventListener('click', addNewTask)
 
 /* Just a test
 

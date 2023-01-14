@@ -49,8 +49,20 @@
     gap: 2px;
 }
 
+.contain {
+    width: 30px;
+    height: 25px;
+    display: flex;
+    color: white;
+}
+
 .span {
     text-align: left;
+    display: block;
+}
+
+.span.hidden {
+    display: none;
 }
 
 .svg {
@@ -58,7 +70,20 @@
     border-radius: 2px;
 }
 
-.edit {
+.svg.hidden {
+    display: none;
+}
+
+.input {
+    width: max-content;
+}
+
+.input.hidden {
+    display: none;
+}
+
+.button {
+    width: 35px;
     color: whitesmoke;
     background-color: #0f0f0f;
 }
@@ -83,26 +108,4 @@ button.add {
     border-radius: 20px;
 }
 
-.contain {
-    width: 25%;
-    height: 100px;
-    display: grid;
-    color: white;
-    background-color: orange;
-}
 
-.text {
-    background-color: #0f0f0f;
-}
-
-.text.hidden {
-    display: none;
-}
-
-.edit {
-    background-color: red;
-}
-
-.edit.hidden {
-    display: none;
-}
