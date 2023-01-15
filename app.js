@@ -31,18 +31,17 @@ function addClassHidden(element) {
     element.classList.add('hidden')
 }
 
+function hiddenTwofirstElement(params) {
+    params.forEach((element, index) => index < 2 ? addClassHidden(element) : removeClassHidden(element));
+}
+
 function editTitleTask() {
     const firstGrandChildOfGrandsParent = this.parentElement.parentElement.firstElementChild.firstElementChild
     const lastGrandChildOfGrandsParent = this.parentElement.parentElement.firstElementChild.lastElementChild
-    addClassHidden(this)
     if(this.nextElementSibling) {
-        addClassHidden(firstGrandChildOfGrandsParent)
-        removeClassHidden(this.nextElementSibling)
-        removeClassHidden(lastGrandChildOfGrandsParent)
+        hiddenTwofirstElement([this, firstGrandChildOfGrandsParent, this.nextElementSibling, lastGrandChildOfGrandsParent])
     } else {
-        addClassHidden(lastGrandChildOfGrandsParent)
-        removeClassHidden(this.previousElementSibling)
-        removeClassHidden(firstGrandChildOfGrandsParent)
+        hiddenTwofirstElement([this, lastGrandChildOfGrandsParent, this.previousElementSibling, firstGrandChildOfGrandsParent])
     }
 }
 
