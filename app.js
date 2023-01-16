@@ -16,13 +16,6 @@ const buttonSave = `<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stro
 
 boxContainTaskComplete.classList.add('hidden')
 
-function createElement(element, className) {
-    const newElement = document.createElement(element)
-    newElement.classList.add( element == 'li' || element == 'div' || element == 'button' ? className : element)
-    if(element.includes('span') || element.includes('svg')) newElement.innerHTML = className
-    return newElement
-}
-
 function removeClassHidden(element){
     element.classList.remove('hidden')
 }
@@ -58,6 +51,13 @@ function deleteTask() {
     if(listTaskComplete.childElementCount === 0 ) boxContainTaskComplete.classList.add('hidden')
 }
 
+function createElement(element, className) {
+    const newElement = document.createElement(element)
+    newElement.classList.add( element == 'li' || element == 'div' || element == 'button' ? className : element)
+    if(element.includes('span') || element.includes('svg')) newElement.innerHTML = className
+    return newElement
+}
+
 function createNewTask(){
     if(taskTilte.value != '') {
         const li = createElement('li', 'list-item')
@@ -72,9 +72,8 @@ function createNewTask(){
 
         // disposition of all element in the task and value default
         editContainer.append(svgEdit,svgEditSave)
-        svgEditSave.classList.add('hidden')
         containTaskTitle.append(span, input)
-        input.classList.add('hidden')
+        hiddenTwofirstElement([svgEditSave, input])
         li.append(containTaskTitle, editContainer, svgDelete, svgSave)
         listTaskToDo.insertBefore(li, taskTilte)
 
