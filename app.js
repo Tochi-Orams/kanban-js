@@ -39,8 +39,10 @@ function editTitleTask() {
     const firstGrandChildOfGrandsParent = this.parentElement.parentElement.firstElementChild.firstElementChild
     const lastGrandChildOfGrandsParent = this.parentElement.parentElement.firstElementChild.lastElementChild
     if(this.nextElementSibling) {
+        lastGrandChildOfGrandsParent.value = firstGrandChildOfGrandsParent.innerHTML
         hiddenTwofirstElement([this, firstGrandChildOfGrandsParent, this.nextElementSibling, lastGrandChildOfGrandsParent])
     } else {
+        firstGrandChildOfGrandsParent.innerHTML = lastGrandChildOfGrandsParent.value
         hiddenTwofirstElement([this, lastGrandChildOfGrandsParent, this.previousElementSibling, firstGrandChildOfGrandsParent])
     }
 }
