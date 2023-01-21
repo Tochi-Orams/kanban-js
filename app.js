@@ -41,9 +41,8 @@ function editTitleTask() {
 }
 
 function moveToComplete(){
-    boxContainTaskComplete.classList.remove('hidden')
     listTaskComplete.append(this.parentElement)
-    hiddenTwofirstElement([this, this.previousElementSibling.previousElementSibling])
+    hiddenTwofirstElement([this, this.previousElementSibling.previousElementSibling, boxContainTaskComplete])
 }
 
 function deleteTask() {
