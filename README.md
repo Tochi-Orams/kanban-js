@@ -1,10 +1,10 @@
-### What I've Learned
+# What I've Learned
 
 Every element of the DOM is an object and it display only in single place.
 
 For example let's take this code in app.js :
 
-Here we want to displat the taskComplete in the list of the task complete : 
+Here we want to displat the taskComplete in the list of the task complete :
 
 ```js
 function moveToComplete(taskComplete){
@@ -12,7 +12,7 @@ function moveToComplete(taskComplete){
 }
 ```
 
-But in the code below, we delete it after, 
+But in the code below, we delete it after,
 
 ```js
 function deleteTask() {
@@ -23,10 +23,9 @@ function deleteTask() {
 
 So, the task complete doesn't appear in the list of task completed
 
-## TO DO 
+## TO DO
 
-    - functionnality 
-
+- functionnality
     [x] : The box of Task's completed only appear when one task is complete. 
     [x] : The box of Task's completed disappear when one task is complete
     [x] : add features for editing task
@@ -34,7 +33,7 @@ So, the task complete doesn't appear in the list of task completed
     [x] : remove svgEdit and svgSave when task is complete
     [x] : refactor the function editTitleTask()
 
-    - Style
+- Style
 
     [ ] : stylized the card-container, list-item
     [ ] : add animation effect for every event
