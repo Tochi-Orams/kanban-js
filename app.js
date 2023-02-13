@@ -81,6 +81,10 @@ function createNewTask(){
         svgSave.addEventListener('click', moveToComplete)
         svgEdit.addEventListener('click', editTitleTask)
         svgEditSave.addEventListener('click', editTitleTask)
+
+        //test of the draggable functionnality
+        li.setAttribute("draggable","true")
+        console.log(li)
     }
 }
 
