@@ -16,12 +16,11 @@ const buttonSave = `<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stro
 
 boxContainTaskComplete.classList.add('hidden')
 
-var i = 0;
+let taskToDrop;
 
 function dragstart_handler(ev) {
     // Add the target element's id to the data transfer object
-    ev.dataTransfer.setData("text/html", ev.target.id);
-    ev.dataTransfer.effectAllowed = "move";
+    taskToDrop = ev.target
 }
 
 function dragover_handler(ev) {
@@ -32,9 +31,8 @@ function dragover_handler(ev) {
 function drop_handler(ev) {
     ev.preventDefault();
     // Get the id of the target and add the moved element to the target's DOM
-    const data = ev.dataTransfer.getData("text/html");
-    listTaskComplete.appendChild(document.getElementById(data));
-    console.log(document.getElementById(data))
+    console.log(ev.target)
+    ev.target.parentElement.appendChild(taskToDrop);
 }
 
 function removeClassHidden(element){
@@ -105,8 +103,6 @@ function createNewTask(){
 
         //test of the draggable functionnality
         li.setAttribute("draggable","true")
-        li.setAttribute("id", i++)
-        console.log(li)
     }
 }
 

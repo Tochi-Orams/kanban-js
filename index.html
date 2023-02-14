@@ -11,13 +11,16 @@
     <h1 class="heading">A simple Tast Manager</h1>
     <div class="container">
         <div class="task">TO DO
-            <ul class="list-items toDo" ondragstart="dragstart_handler(event)">
+            <ul class="list-items toDo" ondragstart="dragstart_handler(event)"  ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
                 <input type="text" name="taskTitle" id="taskTitle">
                 <button class="add">Add a Task</button>
             </ul>
+            <div>
+                
+            </div>
         </div>
-        <div class="task complete">COMPLETE
-            <ul class="list-items complete" id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
+        <div class="task complete" ondragstart="dragstart_handler(event)" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">COMPLETE
+            <ul class="list-items complete" >
             </ul>
         </div>
     </div>
