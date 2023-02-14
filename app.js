@@ -16,6 +16,27 @@ const buttonSave = `<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stro
 
 boxContainTaskComplete.classList.add('hidden')
 
+var i = 0;
+
+function dragstart_handler(ev) {
+    // Add the target element's id to the data transfer object
+    ev.dataTransfer.setData("text/html", ev.target.id);
+    ev.dataTransfer.effectAllowed = "move";
+}
+
+function dragover_handler(ev) {
+    ev.preventDefault();
+    ev.dataTransfer.dropEffect = "move";
+}
+
+function drop_handler(ev) {
+    ev.preventDefault();
+    // Get the id of the target and add the moved element to the target's DOM
+    const data = ev.dataTransfer.getData("text/html");
+    listTaskComplete.appendChild(document.getElementById(data));
+    console.log(document.getElementById(data))
+}
+
 function removeClassHidden(element){
     element.classList.remove('hidden')
 }
@@ -84,6 +105,7 @@ function createNewTask(){
 
         //test of the draggable functionnality
         li.setAttribute("draggable","true")
+        li.setAttribute("id", i++)
         console.log(li)
     }
 }
