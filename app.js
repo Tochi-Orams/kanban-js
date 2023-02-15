@@ -18,36 +18,25 @@ boxContainTaskComplete.classList.add('hidden')
 
 let taskToDrop;
 
-function dragstart_handler(ev) {
-    // Add the target element's id to the data transfer object
-    taskToDrop = ev.target
-}
+const dragstart_handler = (ev) => taskToDrop = ev.target
 
-function dragover_handler(ev) {
+const dragover_handler = (ev) => {
     ev.preventDefault();
     ev.dataTransfer.dropEffect = "move";
 }
 
-function drop_handler(ev) {
-    ev.preventDefault();
-    // Get the id of the target and add the moved element to the target's DOM
-    console.log(ev.target)
+const drop_handler = (ev) => {
+    ev.preventDefault()
     ev.target.parentElement.appendChild(taskToDrop);
 }
 
-function removeClassHidden(element){
-    element.classList.remove('hidden')
-}
+const removeClassHidden = (element) => element.classList.remove('hidden')
 
-function addClassHidden(element) {
-    element.classList.add('hidden')
-}
+const addClassHidden= (element) => element.classList.add('hidden')
 
-function hiddenTwofirstElement(params) {
-    params.forEach((element, index) => index < 2 ? addClassHidden(element) : removeClassHidden(element));
-}
+const hiddenTwofirstElement = (params) => params.forEach((element, index) => index < 2 ? addClassHidden(element) : removeClassHidden(element));
 
-function editTitleTask() {
+const editTitleTask = () => {
     const firstGrandChildOfGrandsParent = this.parentElement.parentElement.firstElementChild.firstElementChild
     const lastGrandChildOfGrandsParent = this.parentElement.parentElement.firstElementChild.lastElementChild
     if(this.nextElementSibling) {
@@ -59,24 +48,24 @@ function editTitleTask() {
     }
 }
 
-function moveToComplete(){
+const moveToComplete = () => {
     listTaskComplete.append(this.parentElement)
     hiddenTwofirstElement([this, this.previousElementSibling.previousElementSibling, boxContainTaskComplete])
 }
 
-function deleteTask() {
+const deleteTask = () => {
     this.parentElement.remove()
     if(listTaskComplete.childElementCount === 0 ) boxContainTaskComplete.classList.add('hidden')
 }
 
-function createElement(element, className) {
+const createElement = () => (element, className) => {
     const newElement = document.createElement(element)
     newElement.classList.add( element == 'li' || element == 'div' || element == 'button' ? className : element)
     if(element.includes('span') || element.includes('svg')) newElement.innerHTML = className
     return newElement
 }
 
-function createNewTask(){
+const createNewTask = () => {
     if(taskTilte.value != '') {
         const li = createElement('li', 'list-item')
         const containTaskTitle = createElement('div', 'contain')
