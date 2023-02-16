@@ -37,24 +37,24 @@ const addClassHidden= (element) => element.classList.add('hidden')
 const hiddenTwofirstElement = (params) => params.forEach((element, index) => index < 2 ? addClassHidden(element) : removeClassHidden(element));
 
 const editTitleTask = () => {
-    const firstGrandChildOfGrandsParent = this.parentElement.parentElement.firstElementChild.firstElementChild
-    const lastGrandChildOfGrandsParent = this.parentElement.parentElement.firstElementChild.lastElementChild
-    if(this.nextElementSibling) {
+    const firstGrandChildOfGrandsParent = event.target.parentElement.parentElement.firstElementChild.firstElementChild
+    const lastGrandChildOfGrandsParent = event.target.parentElement.parentElement.firstElementChild.lastElementChild
+    if(event.target.nextElementSibling) {
         lastGrandChildOfGrandsParent.value = firstGrandChildOfGrandsParent.innerHTML
-        hiddenTwofirstElement([this, firstGrandChildOfGrandsParent, this.nextElementSibling, lastGrandChildOfGrandsParent])
+        hiddenTwofirstElement([event.target, firstGrandChildOfGrandsParent, event.target.nextElementSibling, lastGrandChildOfGrandsParent])
     } else {
         firstGrandChildOfGrandsParent.innerHTML = lastGrandChildOfGrandsParent.value
-        hiddenTwofirstElement([this, lastGrandChildOfGrandsParent, this.previousElementSibling, firstGrandChildOfGrandsParent])
+        hiddenTwofirstElement([event.target, lastGrandChildOfGrandsParent, event.target.previousElementSibling, firstGrandChildOfGrandsParent])
     }
 }
 
 const moveToComplete = () => {
-    listTaskComplete.append(this.parentElement)
-    hiddenTwofirstElement([this, this.previousElementSibling.previousElementSibling, boxContainTaskComplete])
+    listTaskComplete.append(event.target.parentElement)
+    hiddenTwofirstElement([event.target, event.target.previousElementSibling.previousElementSibling, boxContainTaskComplete])
 }
 
 const deleteTask = () => {
-    this.parentElement.remove()
+    event.target.parentElement.remove()
     if(listTaskComplete.childElementCount === 0 ) boxContainTaskComplete.classList.add('hidden')
 }
 
