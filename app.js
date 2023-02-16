@@ -70,12 +70,15 @@ const createNewTask = () => {
         const li = createElement('li', 'list-item')
         const containTaskTitle = createElement('div', 'contain')
         const span = createElement('span', taskTilte.value)
+        /*
+        TO DO :  Refactor this code by using fontawesome
         const input = createElement('input', taskTilte.value)
         const editContainer = createElement('button', 'contain')
         const svgEdit = createElement('svg', buttonEdit)
         const svgEditSave = createElement('svg', buttonSave)
         const svgDelete = createElement('svg', buttonDelete)
         const svgSave = createElement('svg', buttonSave)
+
 
         // disposition of all element in the task and value default
         editContainer.append(svgEdit,svgEditSave)
@@ -89,7 +92,7 @@ const createNewTask = () => {
         svgSave.addEventListener('click', moveToComplete)
         svgEdit.addEventListener('click', editTitleTask)
         svgEditSave.addEventListener('click', editTitleTask)
-
+        */
         //test of the draggable functionnality
         li.setAttribute("draggable","true")
     }
