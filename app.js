@@ -58,7 +58,7 @@ const deleteTask = () => {
     if(listTaskComplete.childElementCount === 0 ) boxContainTaskComplete.classList.add('hidden')
 }
 
-const createElement = () => (element, className) => {
+const createElement = (element, className) => {
     const newElement = document.createElement(element)
     newElement.classList.add( element == 'li' || element == 'div' || element == 'button' ? className : element)
     if(element.includes('span') || element.includes('svg')) newElement.innerHTML = className
