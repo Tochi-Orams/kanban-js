@@ -3,7 +3,7 @@ const taskTilte = document.querySelector('#taskTitle')
 const boxContainTaskComplete = document.querySelector('.task.complete')
 const listTaskToDo = document.querySelector('.list-items.toDo')
 const listTaskComplete = document.querySelector('.list-items.complete')
-const buttonEdit = `<i class="fa-brands fa-github-square"></i>`
+const fontawesome = `<i class="fa-brands fa-github-square"></i>`
 
 
 boxContainTaskComplete.classList.add('hidden')
@@ -28,25 +28,25 @@ const addClassHidden= (element) => element.classList.add('hidden')
 
 const hiddenTwofirstElement = (params) => params.forEach((element, index) => index < 2 ? addClassHidden(element) : removeClassHidden(element));
 
-const editTitleTask = () => {
-    const firstGrandChildOfGrandsParent = event.target.parentElement.parentElement.firstElementChild.firstElementChild
-    const lastGrandChildOfGrandsParent = event.target.parentElement.parentElement.firstElementChild.lastElementChild
-    if(event.target.nextElementSibling) {
+const editTitleTask = (ev) => {
+    const firstGrandChildOfGrandsParent = ev.target.parentElement.parentElement.firstElementChild.firstElementChild
+    const lastGrandChildOfGrandsParent = ev.target.parentElement.parentElement.firstElementChild.lastElementChild
+    if(ev.target.nextElementSibling) {
         lastGrandChildOfGrandsParent.value = firstGrandChildOfGrandsParent.innerHTML
-        hiddenTwofirstElement([event.target, firstGrandChildOfGrandsParent, event.target.nextElementSibling, lastGrandChildOfGrandsParent])
+        hiddenTwofirstElement([ev.target, firstGrandChildOfGrandsParent, ev.target.nextElementSibling, lastGrandChildOfGrandsParent])
     } else {
         firstGrandChildOfGrandsParent.innerHTML = lastGrandChildOfGrandsParent.value
-        hiddenTwofirstElement([event.target, lastGrandChildOfGrandsParent, event.target.previousElementSibling, firstGrandChildOfGrandsParent])
+        hiddenTwofirstElement([ev.target, lastGrandChildOfGrandsParent, ev.target.previousElementSibling, firstGrandChildOfGrandsParent])
     }
 }
 
-const moveToComplete = () => {
-    listTaskComplete.append(event.target.parentElement)
-    hiddenTwofirstElement([event.target, event.target.previousElementSibling.previousElementSibling, boxContainTaskComplete])
+const moveToComplete = (ev) => {
+    listTaskComplete.append(ev.target.parentElement)
+    hiddenTwofirstElement([ev.target, ev.target.previousElementSibling.previousElementSibling, boxContainTaskComplete])
 }
 
-const deleteTask = () => {
-    event.target.parentElement.remove()
+const deleteTask = (ev) => {
+    ev.target.parentElement.remove()
     if(listTaskComplete.childElementCount === 0 ) boxContainTaskComplete.classList.add('hidden')
 }
 
