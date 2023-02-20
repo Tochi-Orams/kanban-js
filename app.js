@@ -4,8 +4,6 @@ const boxContainTaskComplete = document.querySelector('.task.complete')
 const listTaskToDo = document.querySelector('.list-items.toDo')
 const listTaskComplete = document.querySelector('.list-items.complete')
 const buttonEdit = `<i class="fa-brands fa-github-square"></i>`
-const buttonDelete = `<i class="fa-brands fa-github-square"></i>`
-const buttonSave = `<i class="fa-brands fa-github-square"></i>`
 
 
 boxContainTaskComplete.classList.add('hidden')
@@ -54,8 +52,8 @@ const deleteTask = () => {
 
 const createElement = (element, className) => {
     const newElement = document.createElement(element)
-    newElement.classList.add( element == 'li' || element == 'div' || element == 'button' ? className : element)
-    if(element.includes('span') || element.includes('svg')) newElement.innerHTML = className
+    newElement.classList.add( element === 'li' || element === 'div' ? className : element)
+    if(element.includes('span') || element.includes('button') ) newElement.innerHTML = className
     return newElement
 }
 
@@ -64,29 +62,22 @@ const createNewTask = () => {
         const li = createElement('li', 'list-item')
         const containTaskTitle = createElement('div', 'contain')
         const span = createElement('span', taskTilte.value)
-        /*
-        TO DO :  Refactor this code by using fontawesome
         const input = createElement('input', taskTilte.value)
-        const editContainer = createElement('button', 'contain')
-        const svgEdit = createElement('svg', buttonEdit)
-        const svgEditSave = createElement('svg', buttonSave)
-        const svgDelete = createElement('svg', buttonDelete)
-        const svgSave = createElement('svg', buttonSave)
+        const buttonEdit = createElement('button', fontawesome)
+        const buttonDelete = createElement('button', fontawesome)
+        const buttonSave = createElement('button', fontawesome)
 
 
         // disposition of all element in the task and value default
-        editContainer.append(svgEdit,svgEditSave)
         containTaskTitle.append(span, input)
-        hiddenTwofirstElement([svgEditSave, input])
-        li.append(containTaskTitle, editContainer, svgDelete, svgSave)
+        li.append(containTaskTitle, buttonEdit, buttonDelete, buttonSave)
         listTaskToDo.insertBefore(li, taskTilte)
 
         // task functionnality : delete, complete and edit
-        svgDelete.addEventListener('click', deleteTask)
-        svgSave.addEventListener('click', moveToComplete)
-        svgEdit.addEventListener('click', editTitleTask)
-        svgEditSave.addEventListener('click', editTitleTask)
-        */
+        buttonDelete.addEventListener('click', deleteTask)
+        buttonSave.addEventListener('click', moveToComplete)
+        buttonEdit.addEventListener('click', editTitleTask)
+        
         //test of the draggable functionnality
         li.setAttribute("draggable","true")
     }
