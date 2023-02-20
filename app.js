@@ -69,28 +69,21 @@ const createNewTask = () => {
         const li = createElement('li', 'list-item')
         const containTaskTitle = createElement('div', 'contain')
         const span = createElement('span', taskTilte.value)
-        //
-        
         const input = createElement('input', taskTilte.value)
-        const editContainer = createElement('button', 'contain')
         const buttonEdit = createElement('button', fontawesome)
-        const buttonSaveEdit = createElement('button', fontawesome)
         const buttonDelete = createElement('button', fontawesome)
         const buttonSave = createElement('button', fontawesome)
 
 
         // disposition of all element in the task and value default
-        editContainer.append(buttonEdit,buttonSaveEdit)
         containTaskTitle.append(span, input)
-        hiddenTwofirstElement([buttonSaveEdit, input])
-        li.append(containTaskTitle, editContainer, buttonDelete, buttonSave)
+        li.append(containTaskTitle, buttonEdit, buttonDelete, buttonSave)
         listTaskToDo.insertBefore(li, taskTilte)
 
         // task functionnality : delete, complete and edit
         buttonDelete.addEventListener('click', deleteTask)
         buttonSave.addEventListener('click', moveToComplete)
         buttonEdit.addEventListener('click', editTitleTask)
-        buttonSaveEdit.addEventListener('click', editTitleTask)
         
         //test of the draggable functionnality
         li.setAttribute("draggable","true")
