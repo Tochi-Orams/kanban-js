@@ -57,6 +57,13 @@ const createElement = (element, className) => {
     return newElement
 }
 
+const formatElement = (element, classname) => {
+    element = {
+        'button' : `button.innerHTML = ${classname}`
+    }
+    
+}
+
 const createNewTask = () => {
     if(taskTilte.value != '') {
         const li = createElement('li', 'list-item')
