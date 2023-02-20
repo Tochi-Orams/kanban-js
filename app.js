@@ -52,16 +52,9 @@ const deleteTask = () => {
 
 const createElement = (element, className) => {
     const newElement = document.createElement(element)
-    newElement.classList.add( element == 'li' || element == 'div' || element == 'button' ? className : element)
-    if(element.includes('span') || element.includes('svg')) newElement.innerHTML = className
+    newElement.classList.add( element === 'li' || element === 'div' ? className : element)
+    if(element.includes('span') || element.includes('button') ) newElement.innerHTML = className
     return newElement
-}
-
-const formatElement = (element, classname) => {
-    element = {
-        'button' : `button.innerHTML = ${classname}`
-    }
-    
 }
 
 const createNewTask = () => {
