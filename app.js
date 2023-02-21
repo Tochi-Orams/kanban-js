@@ -55,7 +55,7 @@ const deleteTask = (ev) => {
 
 const createElement = (element, className) => {
     const newElement = document.createElement(element)
-    newElement.classList.add( element === 'li' || element === 'div' ? className : element)
+    newElement.classList.add( element === 'li' || element === 'div' || element === 'input'? className : element)
     if(element.includes('span') || element.includes('button') ) newElement.innerHTML = className
     return newElement
 }
@@ -65,7 +65,7 @@ const createNewTask = () => {
         const li = createElement('li', 'list-item')
         const containTaskTitle = createElement('div', 'contain')
         const span = createElement('span', taskTilte.value)
-        const input = createElement('input', taskTilte.value)
+        const input = createElement('input', "hidden")
         const buttonEdit = createElement('button', inconeEdit)
         const buttonDelete = createElement('button', inconeDelete)
         const buttonSave = createElement('button', inconeComplete)

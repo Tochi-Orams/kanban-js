@@ -78,8 +78,12 @@
     display: none;
 }
 
-.input {
+input {
     width: max-content;
+}
+
+input.hidden {
+    display: none;
 }
 
 .input.hidden {
