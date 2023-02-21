@@ -60,13 +60,22 @@
     display: none;
 }
 
-.span {
+span, .span {
     text-align: left;
     display: block;
+    pointer-events: none;
+}
+span.hidden, .span.hidden {
+    display: none;
 }
 
-.span.hidden {
-    display: none;
+.material-icons {
+  width: 27px;
+}
+
+.material-icons.hidden {
+    width: 27px;
+    display : none;
 }
 
 .svg {
