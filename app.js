@@ -3,7 +3,9 @@ const taskTilte = document.querySelector('#taskTitle')
 const boxContainTaskComplete = document.querySelector('.task.complete')
 const listTaskToDo = document.querySelector('.list-items.toDo')
 const listTaskComplete = document.querySelector('.list-items.complete')
-const fontawesome = `<i class="fa-brands fa-github-square"></i>`
+const inconeEdit = `<span class="material-icons">edit</span> <span class="material-icons hidden">pending</span>`
+const inconeDelete = `<span class="material-icons">delete_outline</span>`
+const inconeComplete = `<span class="material-icons">check_circle_outline</span>`
 
 
 boxContainTaskComplete.classList.add('hidden')
@@ -42,11 +44,12 @@ const editTitleTask = (ev) => {
 
 const moveToComplete = (ev) => {
     listTaskComplete.append(ev.target.parentElement)
-    hiddenTwofirstElement([ev.target, ev.target.previousElementSibling.previousElementSibling, boxContainTaskComplete])
+    //hiddenTwofirstElement([ev.target, ev.target.previousElementSibling.previousElementSibling, boxContainTaskComplete])
 }
 
 const deleteTask = (ev) => {
-    ev.target.parentElement.remove()
+    console.log(ev.target)
+    //ev.target.parentElement.remove()
     if(listTaskComplete.childElementCount === 0 ) boxContainTaskComplete.classList.add('hidden')
 }
 
@@ -63,9 +66,9 @@ const createNewTask = () => {
         const containTaskTitle = createElement('div', 'contain')
         const span = createElement('span', taskTilte.value)
         const input = createElement('input', taskTilte.value)
-        const buttonEdit = createElement('button', fontawesome)
-        const buttonDelete = createElement('button', fontawesome)
-        const buttonSave = createElement('button', fontawesome)
+        const buttonEdit = createElement('button', inconeEdit)
+        const buttonDelete = createElement('button', inconeDelete)
+        const buttonSave = createElement('button', inconeComplete)
 
 
         // disposition of all element in the task and value default
