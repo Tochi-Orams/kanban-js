@@ -105,6 +105,10 @@ input.hidden {
     background-color: #0f0f0f;
 }
 
+.button.hidden {
+    display: none;
+}
+
 .delete {
     color: white;
     background-color: red;
