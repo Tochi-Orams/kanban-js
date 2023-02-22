@@ -3,7 +3,9 @@ const taskTilte = document.querySelector('#taskTitle')
 const boxContainTaskComplete = document.querySelector('.task.complete')
 const listTaskToDo = document.querySelector('.list-items.toDo')
 const listTaskComplete = document.querySelector('.list-items.complete')
-const buttonEdit = `<i class="fa-brands fa-github-square"></i>`
+const inconeEdit = `<span class="material-icons">edit</span> <span class="material-icons hidden">pending</span>`
+const inconeDelete = `<span class="material-icons">delete_outline</span>`
+const inconeComplete = `<span class="material-icons">check_circle_outline</span>`
 
 
 boxContainTaskComplete.classList.add('hidden')
@@ -28,31 +30,31 @@ const addClassHidden= (element) => element.classList.add('hidden')
 
 const hiddenTwofirstElement = (params) => params.forEach((element, index) => index < 2 ? addClassHidden(element) : removeClassHidden(element));
 
-const editTitleTask = () => {
-    const firstGrandChildOfGrandsParent = event.target.parentElement.parentElement.firstElementChild.firstElementChild
-    const lastGrandChildOfGrandsParent = event.target.parentElement.parentElement.firstElementChild.lastElementChild
-    if(event.target.nextElementSibling) {
-        lastGrandChildOfGrandsParent.value = firstGrandChildOfGrandsParent.innerHTML
-        hiddenTwofirstElement([event.target, firstGrandChildOfGrandsParent, event.target.nextElementSibling, lastGrandChildOfGrandsParent])
+const editTitleTask = (ev) => {
+    const titleTask = ev.target.previousElementSibling.firstElementChild
+    const iconEdit = ev.target.firstElementChild
+    if(iconEdit.classList.contains('hidden')) {
+        titleTask.innerHTML = titleTask.nextElementSibling.value
+        hiddenTwofirstElement([iconEdit.nextElementSibling, titleTask.nextElementSibling, titleTask, iconEdit])
     } else {
-        firstGrandChildOfGrandsParent.innerHTML = lastGrandChildOfGrandsParent.value
-        hiddenTwofirstElement([event.target, lastGrandChildOfGrandsParent, event.target.previousElementSibling, firstGrandChildOfGrandsParent])
+        titleTask.nextElementSibling.value = titleTask.innerHTML
+        hiddenTwofirstElement([titleTask, iconEdit, iconEdit.nextElementSibling, titleTask.nextElementSibling])
     }
 }
 
-const moveToComplete = () => {
-    listTaskComplete.append(event.target.parentElement)
-    hiddenTwofirstElement([event.target, event.target.previousElementSibling.previousElementSibling, boxContainTaskComplete])
+const moveToComplete = (ev) => {
+    listTaskComplete.append(ev.target.parentElement);
+    hiddenTwofirstElement([ev.target, ev.target.previousElementSibling.previousElementSibling, boxContainTaskComplete])
 }
 
-const deleteTask = () => {
-    event.target.parentElement.remove()
+const deleteTask = (ev) => {
+    ev.target.parentElement.remove()
     if(listTaskComplete.childElementCount === 0 ) boxContainTaskComplete.classList.add('hidden')
 }
 
 const createElement = (element, className) => {
     const newElement = document.createElement(element)
-    newElement.classList.add( element === 'li' || element === 'div' ? className : element)
+    newElement.classList.add( element === 'li' || element === 'div' || element === 'input'? className : element)
     if(element.includes('span') || element.includes('button') ) newElement.innerHTML = className
     return newElement
 }
@@ -62,10 +64,10 @@ const createNewTask = () => {
         const li = createElement('li', 'list-item')
         const containTaskTitle = createElement('div', 'contain')
         const span = createElement('span', taskTilte.value)
-        const input = createElement('input', taskTilte.value)
-        const buttonEdit = createElement('button', fontawesome)
-        const buttonDelete = createElement('button', fontawesome)
-        const buttonSave = createElement('button', fontawesome)
+        const input = createElement('input', "hidden")
+        const buttonEdit = createElement('button', inconeEdit)
+        const buttonDelete = createElement('button', inconeDelete)
+        const buttonSave = createElement('button', inconeComplete)
 
 
         // disposition of all element in the task and value default
