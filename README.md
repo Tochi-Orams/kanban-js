@@ -1,6 +1,13 @@
 # Build a TO DO app with Core Javascript
 
-This is a simple task manager write enterily with a pure Javascript and css.
+This is a simple task manager write enterily with a Vanilla Javascript and CSS.
+
+# Technology i used : 
+
+front : Vanilla JS
+style : HTML/CSS
+icon : material icon
+
 
 ## The futures of JavasCript you will learn throught it
 
