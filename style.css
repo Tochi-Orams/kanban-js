@@ -154,7 +154,7 @@ textarea.hidden {
     background-color: #0f0f0f;
 }
 
-.button.hidden {
+button.hidden {
     display: none;
 }
 
@@ -166,46 +166,4 @@ textarea.hidden {
 .save {
     color: green;
     background-color: white;
-}
-
-button.add {
-    width: 100px;
-    height: 30px;
-    margin-bottom: 5px;
-    font-weight: 600;
-    background-color: whitesmoke;
-    border: 1px solid black;
-    border-radius: 20px;
-}
-
-#page {
-    display: grid;
-    width: 100%;
-    height: 200px;
-    grid-template:
-      [header-left] "head head" 20px [header-right]
-      [main-left] "nav  main" 1fr [main-right]
-      [footer-left] "nav  foot" 50px [footer-right]
-      / 500px 1fr;
-  }
-  
-  header {
-    background-color: lime;
-    grid-area: head;
-  }
-  
-  nav {
-    background-color: lightblue;
-    grid-area: nav;
-  }
-  
-  main {
-    background-color: yellow;
-    grid-area: main;
-  }
-  
-  footer {
-    background-color: red;
-    grid-area: foot;
-  }
-  
+} 
