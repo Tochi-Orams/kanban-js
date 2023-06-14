@@ -1,32 +1,63 @@
-* {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    box-sizing: border-box;
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 400;
+    src: url('assets/fonts/roboto-light-webfont.woff2') format('woff2'),
+         url('assets/fonts/roboto-light-webfont.woff2') format('woff');
 }
 
-.heading, .container {
-    text-transform: capitalize;
-    margin: 20px auto;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    transition: all 0.5s ease;
+}
+
+:root {
+    --bg-color: #020312;
+    --text-color: #fff;
+    --main-color: #eb4a4a;
+    --second-color:gray;
+    --other-color:#12141c;
+    --h1-font: 3.5rem;
+    --h2-font: 3rem;
+    --p-font: 1rem;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;/*
+    background: var(--bg-color);
+    color: var(--text-color);*/
+}
+
+h1{
+    margin-block: 50px;
+    font-size: var(--h1-font);
 }
 
 .container {
-    width: 65%;
-    margin: 0 auto;
-    padding: 5px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid blue;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    background: yellow;
 }
 
-.task {
-    font-size: larger;
-    width: 50%;
-    margin: 5px ;
-}
+.task{
 
+    width: auto;
+    min-width: 250px;
+    height: auto;
+    min-height: 250px;
+    border-radius: .5rem;
+    border: 2px solid var(--main-color);
+}
 .task.complete.hidden {
     display: none;
 }
