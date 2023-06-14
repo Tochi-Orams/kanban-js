@@ -73,16 +73,13 @@ h1{
 }
 
 .list-item {
-    text-align: left;
-    list-style: none;
     background: linear-gradient(to bottom right, #FD8451, #FFBD6F);
     margin: 3px;
     border: 1px solid black;
     display: grid;
     grid-template: 
-        "text text text" min-content
-        "btn btn btn" auto
-        repeat(3, 1fr);
+        "text text text" minmax(50px, auto)
+        "one two three" auto / 1fr 1fr 1fr;
     gap: 2px;
 }
 
@@ -90,20 +87,46 @@ h1{
     grid-area: text;
 }
 
-button.button{
-    grid-area: btn ;
-}
-
 .contain.hidden {
     display: none;
 }
 
-span, .span {
-    text-align: left;
-    display: block;
+button .one{
+    grid-area: one;
+}
+
+button .two{
+    grid-area: two;
+}
+
+button .three{
+    grid-area: three;
+}
+
+span, .zero {
+    text-align: center;
     pointer-events: none;
 }
-span.hidden, .span.hidden {
+
+span.hidden, .zero.hidden {
+    display: none;
+}
+
+textarea {
+    width: 100%;
+    padding: 5px;
+    height: max-content;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+    overflow: hidden;
+}
+
+textarea.hidden {
+    display: none;
+}
+
+.textarea.hidden {
     display: none;
 }
 
@@ -122,18 +145,6 @@ span.hidden, .span.hidden {
 }
 
 .svg.hidden {
-    display: none;
-}
-
-input {
-    width: max-content;
-}
-
-input.hidden {
-    display: none;
-}
-
-.input.hidden {
     display: none;
 }
 

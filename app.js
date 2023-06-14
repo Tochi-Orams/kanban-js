@@ -52,9 +52,9 @@ const deleteTask = (ev) => {
     if(listTaskComplete.childElementCount === 0 ) boxContainTaskComplete.classList.add('hidden')
 }
 
-const createElement = (element, className) => {
+const createElement = (element, className, id = 0) => {
     const newElement = document.createElement(element)
-    newElement.classList.add( element === 'li' || element === 'div' || element === 'input'? className : element)
+    newElement.classList.add( element === 'button' || element === 'span'? id :  className)
     if(element.includes('span') || element.includes('button') ) newElement.innerHTML = className
     return newElement
 }
@@ -63,15 +63,15 @@ const createNewTask = () => {
     if(taskTilte.value != '') {
         const li = createElement('li', 'list-item')
         const containTaskTitle = createElement('div', 'contain')
-        const span = createElement('span', taskTilte.value)
-        const input = createElement('input', "hidden")
-        const buttonEdit = createElement('button', inconeEdit)
-        const buttonDelete = createElement('button', inconeDelete)
-        const buttonSave = createElement('button', inconeComplete)
+        const span = createElement('span', taskTilte.value, 'zero')
+        const textarea = createElement('textarea', "hidden")
+        const buttonEdit = createElement('button', inconeEdit, 'one')
+        const buttonDelete = createElement('button', inconeDelete, 'two')
+        const buttonSave = createElement('button', inconeComplete, 'three')
 
 
         // disposition of all element in the task and value default
-        containTaskTitle.append(span, input)
+        containTaskTitle.append(span, textarea)
         li.append(containTaskTitle, buttonEdit, buttonDelete, buttonSave)
         listTaskToDo.insertBefore(li, taskTilte)
 
@@ -80,6 +80,12 @@ const createNewTask = () => {
         buttonSave.addEventListener('click', moveToComplete)
         buttonEdit.addEventListener('click', editTitleTask)
         
+        //textarea auto sizing
+        textarea.addEventListener("keyup", e => {
+            textarea.style.height = "auto";
+            let scHeight = e.target.scrollHeight;
+            textarea.style.height =`${scHeight}px`;
+        })
         //test of the draggable functionnality
         li.setAttribute("draggable","true")
     }
