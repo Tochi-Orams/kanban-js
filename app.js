@@ -1,5 +1,6 @@
 const buttonAddNewTask = document.querySelector('.add')
 const taskTilte = document.querySelector('#taskTitle')
+const addTaskBeforeHere = document.querySelector('#addTaskBeforeHere')
 const boxContainTaskComplete = document.querySelector('.task.complete')
 const listTaskToDo = document.querySelector('.list-items.toDo')
 const listTaskComplete = document.querySelector('.list-items.complete')
@@ -73,7 +74,7 @@ const createNewTask = () => {
         // disposition of all element in the task and value default
         containTaskTitle.append(span, textarea)
         li.append(containTaskTitle, buttonEdit, buttonDelete, buttonSave)
-        listTaskToDo.insertBefore(li, taskTilte)
+        listTaskToDo.insertBefore(li, addTaskBeforeHere)
 
         // task functionnality : delete, complete and edit
         buttonDelete.addEventListener('click', deleteTask)

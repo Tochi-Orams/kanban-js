@@ -67,9 +67,10 @@ h1{
 
 .list-items {
     margin-top: 10px;
+    padding: 5px;
     background: yellow;
     border: 2px solid black;
-    border-radius: .5rem;
+    border-radius: .3rem;
 }
 
 .list-item {
@@ -166,4 +167,15 @@ button.hidden {
 .save {
     color: green;
     background-color: white;
-} 
+}
+
+.addTaskBeforeHere{
+    padding-block: 5px;
+    height: auto;
+}
+
+.addTaskBeforeHere #taskTitle{
+    padding-block: 5px;
+    border-radius: .3rem;
+    border: 1px solid gray;
+}
