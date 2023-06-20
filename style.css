@@ -104,12 +104,10 @@ button .three{
     grid-area: three;
 }
 
-span, .zero {
-    text-align: center;
-    pointer-events: none;
+.zero {
+    overflow: hidden;
 }
-
-span.hidden, .zero.hidden {
+.zero.hidden {
     display: none;
 }
 
@@ -179,7 +177,7 @@ button.hidden {
 }
 
 div.addTaskBeforeHere #taskTitle{
-    margin-right: 5px;
+    margin-inline-end: 5px;
     padding-block: 5px;
     padding-inline-start: 5px;
     border-radius: .3rem;

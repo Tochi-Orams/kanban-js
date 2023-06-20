@@ -82,7 +82,8 @@ const createNewTask = () => {
         buttonEdit.addEventListener('click', editTitleTask)
         
         //textarea auto sizing
-        textarea.addEventListener("keyup", e => {
+        textarea.style.cssText = `overflow-y: hidden`;
+        textarea.addEventListener("input", e => {
             textarea.style.height = "auto";
             let scHeight = e.target.scrollHeight;
             textarea.style.height =`${scHeight}px`;
