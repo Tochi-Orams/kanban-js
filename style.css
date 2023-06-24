@@ -157,16 +157,6 @@ button.hidden {
     display: none;
 }
 
-.delete {
-    color: white;
-    background-color: red;
-}
-
-.save {
-    color: green;
-    background-color: white;
-}
-
 .addTaskBeforeHere{
     display: flex;
     flex-direction: row;
