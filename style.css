@@ -130,7 +130,8 @@ textarea.hidden {
 }
 
 .material-icons {
-  width: 27px;
+    pointer-events: none;
+    width: 27px;
 }
 
 .material-icons.hidden {
