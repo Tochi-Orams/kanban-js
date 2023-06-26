@@ -4,7 +4,7 @@
 
 # Contributing
 
-Thanks for your interest in contributing! Please read carefully through our guidelines below to ensure that your contribution adheres to our project's standards.
+Thanks for your interest in contributing! Contributions are always welcome and appreciated. If you're looking to make your first contribution or improve this project, please follow the steps outlined below
 
 ## Issue Tracking
 
@@ -31,7 +31,7 @@ A *clone* is a downloaded version of a repository. Cloning our fork lets you dow
 
 1. Use `git` to clone your fork
 
-```
+```shell
 git clone https://github.com/YOUR-USERNAME/kanban-js.git
 ```
 
