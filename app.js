@@ -1,5 +1,5 @@
 const buttonAddNewTask = document.querySelector('.add')
-const taskTilte = document.querySelector('#taskTitle')
+const taskTitle = document.querySelector('#taskTitle')
 const addTaskBeforeHere = document.querySelector('#addTaskBeforeHere')
 const boxContainTaskComplete = document.querySelector('.task.complete')
 const listTaskToDo = document.querySelector('.list-items.toDo')
@@ -61,10 +61,10 @@ const createElement = (element, className, id = 0) => {
 }
 
 const createNewTask = () => {
-    if(taskTilte.value != '') {
+    if(taskTitle.value != '') {
         const li = createElement('li', 'list-item')
         const containTaskTitle = createElement('div', 'contain')
-        const span = createElement('span', taskTilte.value, 'zero')
+        const span = createElement('span', taskTitle.value, 'zero')
         const textarea = createElement('textarea', "hidden")
         const buttonEdit = createElement('button', iconEdit, 'one')
         const buttonDelete = createElement('button', iconDelete, 'two')
@@ -81,15 +81,18 @@ const createNewTask = () => {
         buttonSave.addEventListener('click', moveToComplete)
         buttonEdit.addEventListener('click', editTitleTask)
         
-        //textarea auto sizing
+        // textarea auto sizing
         textarea.style.cssText = `overflow-y: hidden`;
         textarea.addEventListener("input", e => {
             textarea.style.height = "auto";
             let scHeight = e.target.scrollHeight;
             textarea.style.height =`${scHeight}px`;
         })
-        //test of the draggable functionnality
+        // test of the draggable functionnality
         li.setAttribute("draggable","true")
+
+        // clear input after click
+        taskTitle.value = ''
     }
 }
 
