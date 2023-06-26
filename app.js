@@ -4,9 +4,9 @@ const addTaskBeforeHere = document.querySelector('#addTaskBeforeHere')
 const boxContainTaskComplete = document.querySelector('.task.complete')
 const listTaskToDo = document.querySelector('.list-items.toDo')
 const listTaskComplete = document.querySelector('.list-items.complete')
-const inconeEdit = `<span class="material-icons">edit</span> <span class="material-icons hidden">pending</span>`
-const inconeDelete = `<span class="material-icons">delete_outline</span>`
-const inconeComplete = `<span class="material-icons">check_circle_outline</span>`
+const iconEdit = `<span class="material-icons">edit</span> <span class="material-icons hidden">pending</span>`
+const iconDelete = `<span class="material-icons">delete_outline</span>`
+const iconComplete = `<span class="material-icons">check_circle_outline</span>`
 
 
 boxContainTaskComplete.classList.add('hidden')
@@ -66,9 +66,9 @@ const createNewTask = () => {
         const containTaskTitle = createElement('div', 'contain')
         const span = createElement('span', taskTilte.value, 'zero')
         const textarea = createElement('textarea', "hidden")
-        const buttonEdit = createElement('button', inconeEdit, 'one')
-        const buttonDelete = createElement('button', inconeDelete, 'two')
-        const buttonSave = createElement('button', inconeComplete, 'three')
+        const buttonEdit = createElement('button', iconEdit, 'one')
+        const buttonDelete = createElement('button', iconDelete, 'two')
+        const buttonSave = createElement('button', iconComplete, 'three')
 
 
         // disposition of all element in the task and default value
