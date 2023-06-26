@@ -71,7 +71,7 @@ const createNewTask = () => {
         const buttonSave = createElement('button', inconeComplete, 'three')
 
 
-        // disposition of all element in the task and value default
+        // disposition of all element in the task and default value
         containTaskTitle.append(span, textarea)
         li.append(containTaskTitle, buttonEdit, buttonDelete, buttonSave)
         listTaskToDo.insertBefore(li, addTaskBeforeHere)
