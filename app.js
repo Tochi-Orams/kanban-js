@@ -44,8 +44,8 @@ const editTitleTask = (ev) => {
 }
 
 const moveToComplete = (ev) => {
-    listTaskComplete.append(ev.target.parentElement);
-    hiddenTwofirstElement([ev.target, ev.target.previousElementSibling.previousElementSibling, boxContainTaskComplete])
+    listTaskComplete.append(ev.cuurentTarget.parentElement);
+    hiddenTwofirstElement([ev.cuurentTarget, ev.cuurentTarget.previousElementSibling.previousElementSibling, boxContainTaskComplete])
 }
 
 const deleteTask = (ev) => {
