@@ -17,11 +17,10 @@
 }
 
 :root {
-    --bg-color: #020312;
-    --text-color: #fff;
-    --main-color: #eb4a4a;
-    --second-color:gray;
-    --other-color:#12141c;
+    --bg-color: rgb(18, 18, 18);
+    --text-color: #ffffffe0;
+    --main-color: rgb(37, 37, 37);
+    --box-shadow:rgba(0, 0, 0, 0.06) 0px 2px 8px;
     --h1-font: 3.5rem;
     --h2-font: 3rem;
     --p-font: 1rem;
@@ -31,9 +30,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;/*
+    justify-content: center;
     background: var(--bg-color);
-    color: var(--text-color);*/
+    color: var(--text-color);
 }
 
 h1{
@@ -47,8 +46,8 @@ h1{
     align-items: flex-start;
     justify-content: space-between;
     gap: 20px;
-    background: yellow;
-    padding: 25px;
+    border-radius: .4rem;
+    padding: 5px;
 }
 
 .task{
@@ -59,7 +58,8 @@ h1{
     max-width: 350px;
     height: auto;
     border-radius: .5rem;
-    border: 2px solid var(--main-color);
+    background: var(--main-color);
+    border: 1px solid var(--box-shadow);
     padding: 15px;
 }
 
@@ -74,15 +74,18 @@ h1{
 .list-items {
     margin-top: 10px;
     padding: 5px;
-    background: yellow;
-    border: 2px solid black;
-    border-radius: .3rem;
+    background: transparent;
+    border: 1.5px solid var(--bg-color);
+    border-radius: .4rem;
 }
 
 .list-item {
-    background: linear-gradient(to bottom right, #FD8451, #FFBD6F);
-    margin: 3px;
-    border: 1px solid black;
+    color: var(--bg-color);
+    background: var(--text-color);
+    margin-block-end: 5px;
+    padding: 5px;
+    border: 1px solid var(--bg-color);
+    border-radius: .4rem;
     display: grid;
     grid-template: 
         "text text text" minmax(50px, auto)
@@ -121,7 +124,7 @@ textarea {
     width: 100%;
     padding: 5px;
     height: max-content;
-    border-radius: 5px;
+    border-radius: .4rem;
     outline: none;
     resize: none;
     overflow: hidden;
@@ -185,7 +188,8 @@ button.add{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding-inline-end: 5px;
+    padding: 5px;
+    padding-inline-end: 10px;
     min-width: fit-content;
 }
 
@@ -193,5 +197,5 @@ button.add{
     display: inline-block;
     padding-inline: 5px;
     font-weight: 700;
-    font-size: 20px;
+    font-size: var(--p-font);
 }
