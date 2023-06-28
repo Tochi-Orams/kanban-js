@@ -52,6 +52,7 @@ h1{
 }
 
 .task{
+    flex: 1;
     background: var(--text-color);
     width: auto;
     min-width: 250px;
@@ -60,6 +61,10 @@ h1{
     border-radius: .5rem;
     border: 2px solid var(--main-color);
     padding: 15px;
+}
+
+.task.complete {
+    flex: 1;
 }
 
 .task.complete.hidden {
