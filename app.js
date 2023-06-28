@@ -32,8 +32,8 @@ const addClassHidden= (element) => element.classList.add('hidden')
 const hiddenTwofirstElement = (params) => params.forEach((element, index) => index < 2 ? addClassHidden(element) : removeClassHidden(element));
 
 const editTitleTask = (ev) => {
-    const titleTask = ev.target.previousElementSibling.firstElementChild
-    const iconEdit = ev.target.firstElementChild
+    const titleTask = ev.currentTarget.previousElementSibling.firstElementChild
+    const iconEdit = ev.currentTarget.firstElementChild
     if(iconEdit.classList.contains('hidden')) {
         titleTask.innerHTML = titleTask.nextElementSibling.value
         hiddenTwofirstElement([iconEdit.nextElementSibling, titleTask.nextElementSibling, titleTask, iconEdit])
