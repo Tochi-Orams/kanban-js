@@ -160,15 +160,13 @@ button.hidden {
 
 .addTaskBeforeHere{
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    flex-wrap: wrap;
     padding-block: 5px;
-    height: auto;
+    gap: 5px;
 }
 
 div.addTaskBeforeHere #taskTitle{
-    margin-inline-end: 5px;
+    flex: 1;
     padding-block: 5px;
     padding-inline-start: 5px;
     border-radius: .3rem;
@@ -176,10 +174,13 @@ div.addTaskBeforeHere #taskTitle{
 }
 
 button.add{
+    flex: 1;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     padding-inline-end: 5px;
+    min-width: fit-content;
 }
 
 .addSymbol{
